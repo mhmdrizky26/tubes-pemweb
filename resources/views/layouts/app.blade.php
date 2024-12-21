@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard E-Sekolah</title>
-    <link rel="shortcut icon" href="{{ asset('assets/img/school.svg') }}" type="image/x-icon">
+    <title>InsightHub Admin</title>
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
@@ -37,97 +37,43 @@
                 </form>
                 <ul class="navbar-nav navbar-right">
 
-                    <li class="dropdown"><a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="{{ route('logout') }}" style="cursor: pointer"
-                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                class="dropdown-item has-icon text-danger">
-                                <i class="fas fa-sign-out-alt"></i> Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
                 </ul>
             </nav>
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">E-Sekolah</a>
+                        <link rel="shortcut icon" href="#" type="image/x-icon">
+                        <img src="assets/img/InsightHub.png" alt="InsightHub Logo" class="sidebar-logo">
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="index.html">E-S</a>
+                        <a href="{{ route('dashboard') }}">
+                            <img src="assets/img/logo-dashboard.png" alt="Mini Logo" class="sidebar-sm-logo">
+                        </a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
-                        <li class="{{ setActive('admin/dashboard') }}"><a class="nav-link"
-                                href="{{ route('admin.dashboard.index') }}"><i class="fas fa-home"></i>
+                        <li class=""><a class="nav-link"
+                                href="{{ route('dashboard') }}"><i class="fas fa-home"></i>
                                 <span>Dashboard</span></a></li>
 
-                        @can('posts.index')
-                            <li class="{{ setActive('admin/post') }}"><a class="nav-link"
-                                    href="{{ route('admin.post.index') }}
+                            <li class=""><a class="nav-link"
+                                    href="{{ route('post') }}
                             "><i
                                         class="fas fa-book-open"></i>
                                     <span>Berita</span></a></li>
-                        @endcan
 
-                        @can('tags.index')
-                            <li class="{{ setActive('admin/tag') }}"><a class="nav-link"
-                                    href="{{ route('admin.tag.index') }}"><i class="fas fa-tags"></i> <span>Tags</span></a>
+                            <li class=""><a class="nav-link"
+                                    href="{{ route('tag') }}"><i class="fas fa-tags"></i> <span>Tags</span></a>
                             </li>
-                        @endcan
 
-                        @can('categories.index')
-                            <li class="{{ setActive('admin/category') }}"><a class="nav-link"
-                                    href="{{ route('admin.category.index') }}"><i class="fas fa-folder"></i>
+                            <li class=""><a class="nav-link"
+                                    href="{{ route('kategori') }}"><i class="fas fa-folder"></i>
                                     <span>Kategori</span></a>
                             </li>
-                        @endcan
 
-                        @can('events.index')
-                            <li class="{{ setActive('admin/event') }}"><a class="nav-link"
-                                    href="{{ route('admin.event.index') }}"><i class="fas fa-bell"></i>
+                            <li class=""><a class="nav-link"
+                                    href="{{ route('agenda') }}"><i class="fas fa-bell"></i>
                                     <span>Agenda</span></a></li>
-                        @endcan
-
-                        @can('majors.index')
-                            <li class="{{ setActive('admin/major') }}"><a class="nav-link" href="#"><i
-                                        class="fas fa-university"></i>
-                                    <span>Jurusan</span></a></li>
-                        @endcan
-
-                        @if (auth()->user()->can('photos.index') ||
-                            auth()->user()->can('videos.index'))
-                            <li class="menu-header">PENGATURAN HALAMAN</li>
-                        @endif
-
-                        @can('photos.index')
-                            <li class="{{ setActive('admin/photo') }}"><a class="nav-link"
-                                    href="{{ route('admin.photo.index') }}"><i class="fas fa-image"></i>
-                                    <span>Foto</span></a></li>
-                        @endcan
-
-                        @can('videos.index')
-                            <li class="{{ setActive('admin/video') }}"><a class="nav-link"
-                                    href="{{ route('admin.video.index') }}"><i class="fas fa-video"></i>
-                                    <span>Video</span></a></li>
-                        @endcan
-
-                        @can('sliders.index')
-                            <li class="{{ setActive('admin/slider') }}"><a class="nav-link"
-                                    href="{{ route('admin.slider.index') }}"><i class="fas fa-laptop"></i>
-                                    <span>Sliders</span></a></li>
-                        @endcan
-
                     </ul>
                 </aside>
             </div>
@@ -138,8 +84,7 @@
             <footer class="main-footer bg-white">
                 <!-- Copyright -->
                 <div class="text-center mb-0">
-                    Build with ❤️
-                    <a class="text-reset fw-bold" href="https://github.com/Bahrul-Rozak">Bahrul Rozak</a>
+                    <p>Copyright 2024 Insight Hub</p>
                 </div>
                 <!-- Copyright -->
             </footer>

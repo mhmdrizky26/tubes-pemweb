@@ -15,12 +15,10 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.event.store') }}" method="POST">
-                            @csrf
-
+                        <form action="" method="">
                             <div class="form-group">
                                 <label>JUDUL AGENDA</label>
-                                <input type="text" name="title" value="{{ old('title') }}"
+                                <input type="text" name="title" value=""
                                     placeholder="Masukkan Judul Agenda"
                                     class="form-control @error('title') is-invalid @enderror">
 
@@ -35,7 +33,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>LOKASI</label>
-                                        <input type="text" name="location" value="{{ old('location') }}"
+                                        <input type="text" name="location" value=""
                                             placeholder="Masukkan Lokasi Agenda"
                                             class="form-control @error('location') is-invalid @enderror">
 
@@ -49,7 +47,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>TANGGAL</label>
-                                        <input type="date" name="date" value="{{ old('date') }}"
+                                        <input type="date" name="date" value=""
                                             class="form-control @error('date') is-invalid @enderror">
 
                                         @error('date')
@@ -64,7 +62,7 @@
                             <div class="form-group">
                                 <label>ISI AGENDA</label>
                                 <textarea class="form-control content @error('content') is-invalid @enderror" name="content"
-                                    placeholder="Masukkan Konten / Isi Agenda" rows="10">{!! old('content') !!}</textarea>
+                                    placeholder="Masukkan Konten / Isi Agenda" rows="10"></textarea>
                                 @error('content')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
@@ -72,9 +70,9 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            <button class="btn btn-primary mr-1 btn-submit" type=""><i class="fa fa-paper-plane"></i>
                                 SIMPAN</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i>
+                            <button class="btn btn-warning btn-reset" type=""><i class="fa fa-redo"></i>
                                 RESET</button>
 
                         </form>

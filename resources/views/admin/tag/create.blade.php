@@ -15,12 +15,10 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.tag.store') }}" method="POST">
-                            @csrf
-
+                        <form action="" method="">
                             <div class="form-group">
                                 <label>NAMA TAG</label>
-                                <input type="text" name="name" value="{{ old('name') }}"
+                                <input type="text" name="name" value=""
                                     placeholder="Masukkan Nama Tag"
                                     class="form-control @error('name') is-invalid @enderror">
 
@@ -31,9 +29,9 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            <button class="btn btn-primary mr-1 btn-submit" type=""><i class="fa fa-paper-plane"></i>
                                 SIMPAN</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i>
+                            <button class="btn btn-warning btn-reset" type=""><i class="fa fa-redo"></i>
                                 RESET</button>
 
                         </form>

@@ -15,15 +15,13 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.event.index') }}" method="GET">
+                        <form action="" method="GET">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    @can('events.create')
-                                        <div class="input-group-prepend">
-                                            <a href="{{ route('admin.event.create') }}" class="btn btn-primary"
-                                                style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
-                                        </div>
-                                    @endcan
+                                    <div class="input-group-prepend">
+                                        <a href="{{ route('agenda.create') }}" class="btn btn-primary"
+                                            style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                    </div>
                                     <input type="text" class="form-control" name="q"
                                         placeholder="cari berdasarkan judul agenda">
                                     <div class="input-group-append">
@@ -45,34 +43,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($events as $no => $event)
-                                        <tr>
-                                            <th scope="row" style="text-align: center">
-                                                {{ ++$no + ($events->currentPage() - 1) * $events->perPage() }}</th>
-                                            <td>{{ $event->title }}</td>
-                                            <td>{{ $event->location }}</td>
-                                            <td>{{ $event->date }}</td>
-                                            <td class="text-center">
-                                                @can('events.edit')
-                                                    <a href="{{ route('admin.event.edit', $event->id) }}"
-                                                        class="btn btn-sm btn-primary">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                    </a>
-                                                @endcan
-
-                                                @can('events.delete')
-                                                    <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
-                                                        id="{{ $event->id }}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
-                                {{ $events->links('vendor.pagination.bootstrap-4') }}
                             </div>
                         </div>
                     </div>

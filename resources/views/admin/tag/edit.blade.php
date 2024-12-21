@@ -15,25 +15,14 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.tag.update', $tag->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
+                        <form action="" method="">
                             <div class="form-group">
                                 <label>NAMA TAG</label>
-                                <input type="text" name="name" value="{{ old('name', $tag->name) }}"
-                                    placeholder="Masukkan Nama Tag"
-                                    class="form-control @error('name') is-invalid @enderror">
-
-                                @error('name')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            <button class="btn btn-primary mr-1 btn-submit" type=""><i class="fa fa-paper-plane"></i>
                                 UPDATE</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i>
+                            <button class="btn btn-warning btn-reset" type=""><i class="fa fa-redo"></i>
                                 RESET</button>
 
                         </form>

@@ -15,15 +15,13 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.tag.index') }}" method="GET">
+                        <form action="{{ route('tag') }}" method="GET">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    @can('tags.create')
                                         <div class="input-group-prepend">
-                                            <a href="{{ route('admin.tag.create') }}" class="btn btn-primary"
+                                            <a href="{{ route('tag.create') }}" class="btn btn-primary"
                                                 style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                         </div>
-                                    @endcan
                                     <input type="text" class="form-control" name="q"
                                         placeholder="cari berdasarkan nama tag">
                                     <div class="input-group-append">
@@ -43,32 +41,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tags as $no => $tag)
-                                        <tr>
-                                            <th scope="row" style="text-align: center">
-                                                {{ ++$no + ($tags->currentPage() - 1) * $tags->perPage() }}</th>
-                                            <td>{{ $tag->name }}</td>
-                                            <td class="text-center">
-                                                @can('tags.edit')
-                                                    <a href="{{ route('admin.tag.edit', $tag->id) }}"
-                                                        class="btn btn-sm btn-primary">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                    </a>
-                                                @endcan
-
-                                                @can('tags.delete')
-                                                    <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
-                                                        id="{{ $tag->id }}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                @endcan
-                                            </td>
-                                        </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
-                                {{ $tags->links('vendor.pagination.bootstrap-4') }}
                             </div>
                         </div>
                     </div>
