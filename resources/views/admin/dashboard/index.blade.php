@@ -17,7 +17,7 @@
                                 <h4>BERITA</h4>
                             </div>
                             <div class="card-body">
-
+                                {{ App\Models\Post::count() ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                 <h4>TAGS</h4>
                             </div>
                             <div class="card-body">
-
+                                {{ App\Models\Tag::count() ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <h4>KATEGORI</h4>
                             </div>
                             <div class="card-body">
-
+                                {{ App\Models\Category::count() ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 <h4>AGENDA</h4>
                             </div>
                             <div class="card-body">
-
+                                {{ App\Models\Event::count() ?? '0' }}
                             </div>
                         </div>
                     </div>

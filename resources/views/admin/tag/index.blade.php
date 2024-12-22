@@ -6,14 +6,11 @@
             <div class="section-header">
                 <h1>Tags</h1>
             </div>
-
             <div class="section-body">
-
                 <div class="card">
                     <div class="card-header">
                         <h4><i class="fas fa-tags"></i> Tags</h4>
                     </div>
-
                     <div class="card-body">
                         <form action="{{ route('tag') }}" method="GET">
                             <div class="form-group">
@@ -41,6 +38,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($tags as $no => $tag)
+                                        <tr>
+                                            <th scope="row" style="text-align: center">
+                                                {{ ++$no + ($tags->currentPage() - 1) * $tags->perPage() }}</th>
+                                            <td>{{ $tag->name }}</td>
+                                            <td class="text-center">
+                                                    <a href="{{ route('tag.edit', $tag->id) }}"
+                                                        class="btn btn-sm btn-primary">
+                                                        <i class="fa fa-pencil-alt"></i>
+                                                    </a>
+                                                    <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $tag->id }}">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
@@ -52,15 +65,12 @@
 
         </section>
     </div>
-
     <script>
-        //ajax delete
         function Delete(id) {
-            var id = id;
             var token = $("meta[name='csrf-token']").attr("content");
 
             swal({
-                title: "APAKAH KAMU YAKIN ?",
+                title: "APAKAH KAMU YAKIN?",
                 text: "INGIN MENGHAPUS DATA INI!",
                 icon: "warning",
                 buttons: [
@@ -70,12 +80,9 @@
                 dangerMode: true,
             }).then(function(isConfirm) {
                 if (isConfirm) {
-
-                    //ajax delete
                     jQuery.ajax({
-                        url: "/admin/tag/" + id,
+                        url: "/tag/delete/" + id,
                         data: {
-                            "id": id,
                             "_token": token
                         },
                         type: 'DELETE',
@@ -105,13 +112,25 @@
                                     location.reload();
                                 });
                             }
+                        },
+                        error: function() {
+                            swal({
+                                title: 'GAGAL!',
+                                text: 'Terjadi kesalahan, silakan coba lagi.',
+                                icon: 'error',
+                                timer: 1000,
+                                showConfirmButton: false,
+                                showCancelButton: false,
+                                buttons: false,
+                            }).then(function() {
+                                location.reload();
+                            });
                         }
                     });
-
                 } else {
                     return true;
                 }
-            })
+            });
         }
     </script>
 @stop

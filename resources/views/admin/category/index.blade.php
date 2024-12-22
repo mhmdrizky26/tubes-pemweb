@@ -6,14 +6,11 @@
             <div class="section-header">
                 <h1>Kategori</h1>
             </div>
-
             <div class="section-body">
-
                 <div class="card">
                     <div class="card-header">
                         <h4><i class="fas fa-folder"></i> Kategori</h4>
                     </div>
-
                     <div class="card-body">
                         <form action="" method="GET">
                             <div class="form-group">
@@ -41,6 +38,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($categories as $no => $category)
+                                        <tr>
+                                            <th scope="row" style="text-align: center">
+                                                {{ ++$no + ($categories->currentPage() - 1) * $categories->perPage() }}</th>
+                                            <td>{{ $category->name }}</td>
+                                            <td class="text-center">
+                                                    <a href="{{ route('kategori.edit', $category->id) }}"
+                                                        class="btn btn-sm btn-primary">
+                                                        <i class="fa fa-pencil-alt"></i>
+                                                    </a>
+                                                    <button onClick="Delete({{ $category->id }})" class="btn btn-sm btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
@@ -49,18 +62,14 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </div>
-
     <script>
-        //ajax delete
         function Delete(id) {
-            var id = id;
             var token = $("meta[name='csrf-token']").attr("content");
 
             swal({
-                title: "APAKAH KAMU YAKIN ?",
+                title: "APAKAH KAMU YAKIN?",
                 text: "INGIN MENGHAPUS DATA INI!",
                 icon: "warning",
                 buttons: [
@@ -70,12 +79,9 @@
                 dangerMode: true,
             }).then(function(isConfirm) {
                 if (isConfirm) {
-
-                    //ajax delete
                     jQuery.ajax({
-                        url: "/admin/category/" + id,
+                        url: "/kategori/delete/" + id,
                         data: {
-                            "id": id,
                             "_token": token
                         },
                         type: 'DELETE',
@@ -105,13 +111,25 @@
                                     location.reload();
                                 });
                             }
+                        },
+                        error: function() {
+                            swal({
+                                title: 'GAGAL!',
+                                text: 'Terjadi kesalahan, silakan coba lagi.',
+                                icon: 'error',
+                                timer: 1000,
+                                showConfirmButton: false,
+                                showCancelButton: false,
+                                buttons: false,
+                            }).then(function() {
+                                location.reload();
+                            });
                         }
                     });
-
                 } else {
                     return true;
                 }
-            })
+            });
         }
     </script>
 @stop
