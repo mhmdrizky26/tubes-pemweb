@@ -61,11 +61,11 @@
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
                         <link rel="shortcut icon" href="#" type="image/x-icon">
-                        <img src="assets/img/InsightHub.png" alt="InsightHub Logo" class="sidebar-logo">
+                        <img src="{{ asset('assets/img/InsightHub.png') }}" alt="InsightHub Logo" class="sidebar-logo">
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="{{ route('dashboard') }}">
-                            <img src="assets/img/logo-dashboard.png" alt="Mini Logo" class="sidebar-sm-logo">
+                            <img src="{{ asset('assets/img/logo-dashboard.png') }}" alt="Mini Logo" class="sidebar-sm-logo">
                         </a>
                     </div>
                     <ul class="sidebar-menu">
