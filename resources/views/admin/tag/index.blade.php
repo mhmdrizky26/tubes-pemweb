@@ -20,7 +20,7 @@
                                                 style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                         </div>
                                     <input type="text" class="form-control" name="q"
-                                        placeholder="cari berdasarkan nama tag">
+                                        placeholder="Cari berdasarkan nama tag">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                         </button>
@@ -46,7 +46,7 @@
                                             <td class="text-center">
                                                     <a href="{{ route('tag.edit', $tag->id) }}"
                                                         class="btn btn-sm btn-primary">
-                                                        <i class="fa fa-pencil-alt"></i>
+                                                        <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $tag->id }}">
                                                         <i class="fa fa-trash"></i>

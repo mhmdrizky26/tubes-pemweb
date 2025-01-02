@@ -185,6 +185,17 @@ textarea.form-control {
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 6px); }
 
+.chart-full-width {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hilangkan ruang kosong ekstra */
+    display: block; /* Pastikan elemen tidak menjadi inline */
+}
+
+
+
 .form-control.creditcard {
   background-position: 98%;
   background-repeat: no-repeat;
@@ -613,7 +624,8 @@ select.form-control:not([size]):not([multiple]) {
     position: static; }
   .card .card-body {
     padding-top: 20px;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    margin: 0; }
     .card .card-body .section-title {
       margin: 30px 0 10px 0;
       font-size: 16px; }
@@ -2883,7 +2895,7 @@ body.layout-3 .main-footer {
 
 .main-footer {
   padding: 20px 30px 20px 280px;
-  margin-top: 40px;
+  margin-top: 20px;
   color: #98a6ad;
   border-top: 1px solid #e3eaef;
   display: inline-block;

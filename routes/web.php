@@ -36,6 +36,14 @@ Route::middleware('auth')->group(function () {
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+//User
+Route::get('/user', function () {
+    return view('admin.user.index');
+})->name('user.index');
+Route::get('/user/create', function () {
+    return view('admin.user.create');
+})->name('user.create');
+
 //Post
 Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
