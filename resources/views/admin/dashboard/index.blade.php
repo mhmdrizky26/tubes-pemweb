@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>User</h4>
+                                <h4>USER</h4>
                             </div>
                             <div class="card-body">
                                 {{ App\Models\User::count() ?? '0' }}
