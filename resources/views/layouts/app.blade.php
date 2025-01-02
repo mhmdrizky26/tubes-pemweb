@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/select2-bootstrap4.css') }}" />
 
+    <link rel="stylesheet" href="{{ asset('focus-2/vendor/owl-carousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('focus-2/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
+    <link href="{{ asset('focus-2/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('focus-2/css/style.css') }}" rel="stylesheet">
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -75,6 +80,10 @@
                                 <span>Dashboard</span></a></li>
 
                             <li class=""><a class="nav-link"
+                                    href="{{ route('user.index') }}
+                            "><i class='fas fa-address-book'></i>
+                                    <span>User</span></a></li>
+                            <li class=""><a class="nav-link"
                                     href="{{ route('post') }}
                             "><i
                                         class="fas fa-book-open"></i>
@@ -123,6 +132,14 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <!-- Vectormap -->
+    <script src="{{ asset('focus-2/vendor/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('focus-2/vendor/morris/morris.min.js') }}"></script>
+
+    <script src="{{ asset('focus-2/vendor/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('focus-2/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+
     <script>
         //active select2
         $(document).ready(function() {
@@ -157,6 +174,8 @@
             });
         @endif
     </script>
+
+    @yield('scripts')
 </body>
 
 </html>

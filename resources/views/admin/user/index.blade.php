@@ -4,23 +4,23 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Berita</h1>
+                <h1>User</h1>
             </div>
             <div class="section-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="fas fa-book-open"></i> Berita</h4>
+                        <h4><i class="fas fa-address-book"></i> User</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('post') }}" method="GET">
+                        <form action="{{ route('user.index') }}" method="GET">
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <a href="{{ route('post.create') }}" class="btn btn-primary"
+                                        <a href="{{ route('user.create') }}" class="btn btn-primary"
                                             style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                     </div>
                                     <input type="text" class="form-control" name="q"
-                                        placeholder="Cari berdasarkan judul berita">
+                                        placeholder="Cari berdasarkan nama user">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                         </button>
@@ -33,30 +33,12 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                        <th scope="col">JUDUL BERITA</th>
-                                        <th scope="col">KATEGORI</th>
+                                        <th scope="col">NAMA</th>
+                                        <th scope="col">EMAIL</th>
                                         <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($posts as $no => $post)
-                                        <tr>
-                                            <th scope="row" style="text-align: center">
-                                                {{ ++$no + ($posts->currentPage() - 1) * $posts->perPage() }}</th>
-                                            <td>{{ $post->title }}</td>
-                                            <td>{{ $post->category->name }}</td>
-                                            <td class="text-center">
-                                                    <a href="{{ route('post.edit', $post->id) }}"
-                                                        class="btn btn-sm btn-primary">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </a>
-                                                    <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
-                                                        id="{{ $post->id }}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
