@@ -36,6 +36,11 @@ Route::middleware('auth')->group(function () {
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+//test template login
+Route::get('/testlogin', function () {
+    return view('auth.logincopy');
+})->name('test.login');
+
 //User
 Route::get('/user', function () {
     return view('admin.user.index');

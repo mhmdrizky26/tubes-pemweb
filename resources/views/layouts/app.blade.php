@@ -50,7 +50,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="{{ route('logout') }}" style="cursor: pointer"
                             onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();"
+                                                document.getElementById('logout-form').submit();"
                             class="dropdown-item has-icon text-danger">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
