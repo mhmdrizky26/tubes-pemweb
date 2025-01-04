@@ -124,8 +124,8 @@
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+									<h1>Temukan Peluang <span>Pendidikan & Karirmu</span> di Satu Tempat!</h1>
+									<p>Dapatkan informasi terbaru seputar beasiswa, lomba, dan peluang karir. Kami hadir untuk membantumu meraih mimpi dan mencapai potensi terbaik! </p>
 									<div class="button">
 										<a href="#" class="btn">Get Appointment</a>
 										<a href="#" class="btn primary">Learn More</a>
@@ -142,8 +142,8 @@
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+									<h1>Temukan Peluang <span>Pendidikan & Karirmu</span> di Satu Tempat!</h1>
+									<p>Dapatkan informasi terbaru seputar beasiswa, lomba, dan peluang karir. Kami hadir untuk membantumu meraih mimpi dan mencapai potensi terbaik! </p>
 									<div class="button">
 										<a href="#" class="btn">Get Appointment</a>
 										<a href="#" class="btn primary">About Us</a>
@@ -160,8 +160,8 @@
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+									<h1>Temukan Peluang <span>Pendidikan & Karirmu</span> di Satu Tempat!</h1>
+									<p>Dapatkan informasi terbaru seputar beasiswa, lomba, dan peluang karir. Kami hadir untuk membantumu meraih mimpi dan mencapai potensi terbaik! </p>
 									<div class="button">
 										<a href="#" class="btn">Get Appointment</a>
 										<a href="#" class="btn primary">Conatct Now</a>

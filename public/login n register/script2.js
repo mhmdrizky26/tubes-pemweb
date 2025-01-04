@@ -12,11 +12,11 @@ loginBtn.addEventListener('click', () => {
 
 window.onload = () => {
     const container = document.querySelector('.container');
-    container.classList.remove('active');
+    container.classList.add('active');
 };
 
 function delayedRedirect(URL) {
     setTimeout(function() {
         window.location.href = URL;
-    }, 0);
+    }, 2000);
 }

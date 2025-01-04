@@ -41,6 +41,11 @@ Route::get('/testlogin', function () {
     return view('auth.logincopy');
 })->name('test.login');
 
+//test template login
+Route::get('/testregister', function () {
+    return view('auth.registercopy');
+})->name('test.register');
+
 //User
 Route::get('/user', function () {
     return view('admin.user.index');
