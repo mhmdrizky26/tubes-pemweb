@@ -659,7 +659,10 @@ select.form-control:not([size]):not([multiple]) {
       .card .card-header .form-control + .input-group-btn .btn {
         margin-top: -1px; }
     .card .card-header h4 {
-      font-size: 16px;
+      font-size: clamp(12px, 2vw, 18px);
+      white-space: nowrap; /* Prevents breaking into multiple lines */
+      overflow: hidden;
+      text-overflow: ellipsis; /* Adds "..." if necessary */
       line-height: 28px;
       color: #6777ef;
       padding-right: 10px;
