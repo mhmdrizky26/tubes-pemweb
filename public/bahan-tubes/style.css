@@ -614,20 +614,22 @@ body{
 	margin-top:150px;
 }
 .slider .single-slider h1 {
-	color: #2C2D3F;
+	color: #fff;
 	font-size: 38px;
 	font-weight: 700;
 	margin: 0;
 	padding: 0;
 	line-height: 42px;
+	text-shadow: 2px 2px #000;
 }
 .slider .single-slider h1 span{
 	color:#1a76d1;
 }
 .slider .single-slider p {
-	color: #2C2D3F;
+	color: #fff;
 	margin-top: 27px;
 	font-weight: 400;
+	text-shadow: 2px 2px #000;
 }
 .slider .single-slider .button{
 	margin-top:30px;
