@@ -12,17 +12,17 @@
 <body>
 
     <div class="container">
-        
+
         <div class="form-box login">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <h1>Login</h1>
                 <div class="input-box">
                     <x-input-label for="email" :value="__('')" />
-                    <x-text-input id="email" class="block mt-1 w-full" 
+                    <x-text-input id="email" class="block mt-1 w-full"
 
                                     type="email" placeholder="Email"
-                                    name="email" :value="old('email')" 
+                                    name="email" :value="old('email')"
                                     required autofocus autocomplete="username" />
 
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -32,9 +32,9 @@
 
                     <x-text-input id="password" class="block mt-1 w-full"
                                     type="password" placeholder="Password"
-                                    name="password" 
+                                    name="password"
                                     required autocomplete="current-password" />
-                        
+
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 <div class="block mt-4">
@@ -61,18 +61,18 @@
                 <h1>Registration</h1>
                 <div class="input-box">
                     <x-input-label for="name" :value="__('')" />
-                    <x-text-input id="name" class="block mt-1 w-full" 
-                                    type="text" placeholder="Username" 
-                                    name="name" :value="old('name')" 
+                    <x-text-input id="name" class="block mt-1 w-full"
+                                    type="text" placeholder="Username"
+                                    name="name" :value="old('name')"
                                     required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
                     <x-input-label for="email" :value="__('')" />
-                    <x-text-input id="email" class="block mt-1 w-full" 
-                                    type="email" placeholder="Email" 
-                                    name="email" :value="old('email')" 
+                    <x-text-input id="email" class="block mt-1 w-full"
+                                    type="email" placeholder="Email"
+                                    name="email" :value="old('email')"
                                     required autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     <i class='bx bxs-envelope' ></i>
@@ -84,6 +84,15 @@
                                     name="password"
                                     required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <x-input-label for="password_confirmation" :value="__('')" />
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                    type="password" placeholder="Password"
+                                    type="password"
+                                    name="password_confirmation" required autocomplete="new-password" />
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <button type="submit" class="btn">Register</button>
@@ -110,9 +119,9 @@
             </div>
         </div>
     </div>
-    
-    
-    
+
+
+
 
     <script src="{{ asset('login n register/script2.js') }}"></script>
 </body>

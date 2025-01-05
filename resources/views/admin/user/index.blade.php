@@ -12,13 +12,9 @@
                         <h4><i class="fas fa-address-book"></i> User</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('user.index') }}" method="GET">
+                        <form action="{{ route('user') }}" method="GET">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <a href="{{ route('user.create') }}" class="btn btn-primary"
-                                            style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
-                                    </div>
                                     <input type="text" class="form-control" name="q"
                                         placeholder="Cari berdasarkan nama user">
                                     <div class="input-group-append">
@@ -39,6 +35,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($users as $no => $user)
+                                        <tr>
+                                            <th scope="row" style="text-align: center">
+                                                {{ ++$no}}</th>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td class="text-center">
+                                                    <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
+                                                        id="{{ $user->id }}">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div style="text-align: center">
@@ -52,7 +62,6 @@
     <script>
         function Delete(id) {
             var token = $("meta[name='csrf-token']").attr("content");
-
             swal({
                 title: "APAKAH KAMU YAKIN?",
                 text: "INGIN MENGHAPUS DATA INI!",
@@ -65,7 +74,7 @@
             }).then(function(isConfirm) {
                 if (isConfirm) {
                     jQuery.ajax({
-                        url: "/post/delete/" + id,
+                        url: "/user/delete/" + id,
                         data: {
                             "_token": token
                         },
@@ -111,7 +120,6 @@
                             });
                         }
                     });
-
                 } else {
                     return true;
                 }

@@ -66,6 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'role' => \Spatie\Permission\Middleware\RoleMiddleware::class, //kasih berdasarkan role
         'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class, //kasih berdasarkan permission
-        'role-permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class //kasih berdasarkan role dan permission
+        'role-permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class, //kasih berdasarkan role dan permission
     ];
 }

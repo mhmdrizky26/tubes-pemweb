@@ -8,13 +8,13 @@
 		<meta name="description" content="">
 		<meta name='copyright' content=''>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+
 		<!-- Title -->
         <title>Insighthub</title>
-		
+
 		<!-- Favicon -->
         <link rel="icon" href="{{ asset('bahan-tubes/img/favicon1.png') }}">
-		
+
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -36,22 +36,25 @@
         <link rel="stylesheet" href="{{ asset('bahan-tubes/css/animate.min.css') }}">
 		<!-- Magnific Popup CSS -->
         <link rel="stylesheet" href="{{ asset('bahan-tubes/css/magnific-popup.css') }}">
-		
+
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="{{ asset('bahan-tubes/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('bahan-tubes/style.css') }}">
         <link rel="stylesheet" href="{{ asset('bahan-tubes/css/responsive.css') }}">
-		
+
+        {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
+
     </head>
     <body>
-	
+
 		<!-- Preloader -->
         <div class="preloader">
             <div class="loader">
                 <div class="loader-outter"></div>
                 <div class="loader-inner"></div>
 
-                <div class="indicator"> 
+                <div class="indicator">
                     <svg width="16px" height="12px">
                         <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
                         <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
@@ -60,7 +63,7 @@
             </div>
         </div>
         <!-- End Preloader -->
-	
+
 		<!-- Header Area -->
 		<header class="header" >
 			<!-- Header Inner -->
@@ -83,7 +86,7 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-                                            <li><a href="#home">Home</a></li>									
+                                            <li><a href="#home">Home</a></li>
                                             <li><a href="#service">Kategori </a></li>
 											<li><a href="#blog">Blog </a></li>
 											<li><a href="contact.html">Contact Us</a></li>
@@ -96,10 +99,20 @@
 								@if (Route::has('login'))
                                     <div class="get-quote">
                                         @auth
-                                            <a href="{{ url('/dashboard') }}" class="btn btn-primary" href="#" role="button">Dashboard</a>
+                                        <div class="dropdown">
+                                            <button class="dropdown-btn">
+                                                Hi, {{ auth()->user()->name }}
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </div>
                                         @else
                                             <a href="{{ route('login') }}" class="btn btn-primary" href="#" role="button">Log in</a>
-                                    
+
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}" class="btn btn-primary" href="#" role="button">Register</a>
                                             @endif
@@ -114,7 +127,7 @@
 			<!--/ End Header Inner -->
 		</header>
 		<!-- End Header Area -->
-		
+
 		<!-- Slider Area -->
 		<section id="home" class="slider" data-section="home">
 			<div class="hero-slider">
@@ -175,7 +188,7 @@
 			</div>
 		</section>
 		<!--/ End Slider Area -->
-		
+
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay" data-section="fun-facts">
 			<div class="container">
@@ -228,7 +241,7 @@
 			</div>
 		</div>
 		<!--/ End Fun-facts -->
-		
+
 		<!-- Start service -->
 		<section id="service" class="services section" data-section="service">
 			<div class="container">
@@ -294,7 +307,7 @@
 			</div>
 		</section>
 		<!--/ End service -->
-		
+
 		<!-- Start Blog Area -->
 		<section class="blog section" id="blog" data-section="blog">
 			<div class="container">
@@ -338,7 +351,7 @@
 									<div class="kategori">INFO LOMBA</div>
 									<h2><a href="blog-single.html">LOMBA HOLOGY 7.0</a></h2>
 									<p class="text">✨️REGISTRATION IS NOW OPEN!🚀
-										Udah tahu belum nih informasi yang menarik? Competition HOLOGY 7.0 kembali hadir dalam serangkaian lomba yang challenging dan menarik banget nih! 
+										Udah tahu belum nih informasi yang menarik? Competition HOLOGY 7.0 kembali hadir dalam serangkaian lomba yang challenging dan menarik banget nih!
 										Competition HOLOGY 7.0 hadir dengan cabang lomba yang tidak kalah seru dengan tahun-tahun sebelumnya.</p>
 								</div>
 							</div>
@@ -366,7 +379,7 @@
 			</div>
 		</section>
 		<!-- End Blog Area -->
-		
+
 		<!-- Start clients -->
 		<div class="clients overlay">
 			<div class="container">
@@ -445,7 +458,7 @@
 			<!--/ End Footer Top -->
 		</footer>
 		<!--/ End Footer Area -->
-		
+
 		<!-- jquery Min JS -->
         <script src="{{ asset('bahan-tubes/js/jquery.min.js') }}"></script>
 		<!-- jquery Migrate JS -->
@@ -489,13 +502,13 @@
         <script>
             //according to loftblog tut
             $('.nav li:first').addClass('active');
-    
+
             var showSection = function showSection(section, isAnimate) {
               var
               direction = section.replace(/#/, ''),
               reqSection = $('.section').filter('[data-section="' + direction + '"]'),
               reqSectionPos = reqSection.offset().top - 0;
-    
+
               if (isAnimate) {
                 $('body, html').animate({
                   scrollTop: reqSectionPos },
@@ -503,9 +516,9 @@
               } else {
                 $('body, html').scrollTop(reqSectionPos);
               }
-    
+
             };
-    
+
             var checkSection = function checkSection() {
               $('.section').each(function () {
                 var
@@ -522,7 +535,7 @@
                 }
               });
             };
-    
+
             $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
               if($(e.target).hasClass('external')) {
                 return;
@@ -531,7 +544,7 @@
               $('#menu').removeClass('active');
               showSection($(this).attr('href'), true);
             });
-    
+
             $(window).scroll(function () {
               checkSection();
             });

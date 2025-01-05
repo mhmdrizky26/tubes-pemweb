@@ -80,7 +80,7 @@
                                 <span>Dashboard</span></a></li>
 
                             <li class=""><a class="nav-link"
-                                    href="{{ route('user.index') }}
+                                    href="{{ route('user') }}
                             "><i class='fas fa-address-book'></i>
                                     <span>User</span></a></li>
                             <li class=""><a class="nav-link"
