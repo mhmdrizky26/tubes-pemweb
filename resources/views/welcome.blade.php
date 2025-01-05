@@ -100,10 +100,8 @@
                                     <div class="get-quote">
                                         @auth
                                         <div class="dropdown">
-                                            <button class="dropdown-btn">
-                                                Hi, {{ auth()->user()->name }}
-                                            </button>
-                                            <div class="dropdown-menu">
+                                            <button class="dropdown-btn" onclick="toggleDropdown()">Hi, {{ auth()->user()->name }}</button>
+                                            <div class="dropdown-menu" id="dropdownMenu">
                                                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
@@ -548,6 +546,20 @@
             $(window).scroll(function () {
               checkSection();
             });
+
+            function toggleDropdown() {
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+
+            // Close the dropdown menu if clicked outside
+            window.onclick = function(event) {
+                var dropdown = document.querySelector('.dropdown');
+                var dropdownMenu = document.getElementById('dropdownMenu');
+                if (!dropdown.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            }
         </script>
     </body>
 </html>
