@@ -27,6 +27,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('kategori.lomba');
+});
+
+Route::get('/singleblog', function () {
+    return view('single-blog');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -80,6 +88,7 @@ Route::post('/agenda/create', [EventController::class, 'store'])->name('agenda.s
 Route::get('/agenda/edit/{id}', [EventController::class, 'edit'])->name('agenda.edit')->middleware(['auth', 'verified', 'role:admin']);
 Route::put('/agenda/update/{id}', [EventController::class, 'update'])->name('agenda.update')->middleware(['auth', 'verified', 'role:admin']);
 Route::delete('/agenda/delete/{id}', [EventController::class, 'destroy'])->name('agenda.delete')->middleware(['auth', 'verified', 'role:admin']);
+
 
 
 require __DIR__.'/auth.php';
