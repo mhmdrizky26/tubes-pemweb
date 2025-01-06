@@ -253,14 +253,16 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="fa-solid fa-user-graduate"></i>
-							<h4><a href="kategori/beasiswa.html">Beasiswa</a></h4>
-						</div>
-						<!-- End Single Service -->
-					</div>
+					@foreach($categories as $category)
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Single Service -->
+                        <div class="single-service">
+                            <i class="fa-solid fa-rectangle-list"></i>
+                            <h4><a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a></h4>
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                    @endforeach
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service">
@@ -319,24 +321,27 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
-							<div class="news-head">
-								<img src="{{ asset('bahan-tubes/img/blog1.jpg') }}" alt="#">
-							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<div class="kategori">HMIF</div>
-									<h2><a href="blog-single.html">MUSYAWARAH BESAR HMIF</a></h2>
-									<p class="text">Musyawarah Besar HMIF 2024 telah digelar!🙌🏻
-										Saatnya berkumpul, berdiskusi, dan mengambil langkah besar untuk masa depan yang lebih gemilang!✨</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Blog -->
-					</div>
+					@foreach($posts as $post)
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Blog -->
+                        <div class="single-news">
+                            <div class="news-head">
+                                <img src="{{ $post->image }}" alt="{{ $post->title }}">
+
+                            </div>
+                            <div class="news-body">
+                                <div class="news-content">
+                                    <div class="date">{{ $post->created_at}}</div>
+                                    <div class="kategori">{{ $post->category->name }}</div>
+                                    <h2><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h2>
+                                    <p class="text">{{ Str::limit($post->slug, 150) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                    </div>
+                    @endforeach
+
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Single Blog -->
 						<div class="single-news">

@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +32,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Akses Siswa
+Route::get('/', [WelcomeController::class, 'index'])->name('post');
+Route::get('/post/{post}', [WelcomeController::class, 'show'])
+    ->name('post.show')
+    ->middleware('auth', 'verified', 'role:user');
+Route::get('/category/{slug}', [WelcomeController::class, 'show'])
+    ->name('category.show')
+    ->middleware('auth', 'verified', 'role:user');
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified', 'role:admin']);

@@ -51,7 +51,7 @@
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
-                                                        id="{{ $post->id }}">
+                                                         id="{{ $post->id }}">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                             </td>

@@ -62,4 +62,8 @@ class Post extends Model
             get: fn ($value) => Carbon::parse($value)->format('d-M-Y'),
         );
     }
+
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
 }
