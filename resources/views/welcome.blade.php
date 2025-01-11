@@ -322,7 +322,7 @@
 				</div>
 				<div class="row">
 					@foreach($posts as $post)
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="col-lg-4 col-md-6 col-12 mb-5">
                         <!-- Single Blog -->
                         <div class="single-news">
                             <div class="news-head">

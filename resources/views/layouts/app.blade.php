@@ -84,7 +84,7 @@
                             "><i class='fas fa-address-book'></i>
                                     <span>User</span></a></li>
                             <li class=""><a class="nav-link"
-                                    href="{{ route('post') }}
+                                    href="{{ route('berita') }}
                             "><i
                                         class="fas fa-book-open"></i>
                                     <span>Berita</span></a></li>

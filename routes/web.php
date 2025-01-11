@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryUserController;
 use App\Http\Controllers\DashboardController;
@@ -58,12 +59,20 @@ Route::get('/user', [UserController::class, 'index'])->name('user')->middleware(
 Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.delete')->middleware(['auth', 'verified', 'role:admin']);
 
 //Post
-Route::get('/post', [PostController::class, 'index'])->name('post')->middleware(['auth', 'verified', 'role:admin']);
-Route::get('/post/create', [PostController::class, 'create'])->name('post.create')->middleware(['auth', 'verified', 'role:admin']);
-Route::post('/post/create', [PostController::class, 'store'])->name('post.store')->middleware(['auth', 'verified', 'role:admin']);
-Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('post.edit')->middleware(['auth', 'verified', 'role:admin']);
-Route::put('/post/update/{post}', [PostController::class, 'update'])->name('post.update')->middleware(['auth', 'verified', 'role:admin']);
-Route::delete('/post/delete/{id}', [PostController::class, 'destroy'])->name('post.delete')->middleware(['auth', 'verified', 'role:admin']);
+// Route::get('/post', [PostController::class, 'index'])->name('post')->middleware(['auth', 'verified', 'role:admin']);
+// Route::get('/post/create', [PostController::class, 'create'])->name('post.create')->middleware(['auth', 'verified', 'role:admin']);
+// Route::post('/post/create', [PostController::class, 'store'])->name('post.store')->middleware(['auth', 'verified', 'role:admin']);
+// Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('post.edit')->middleware(['auth', 'verified', 'role:admin']);
+// Route::put('/post/update/{post}', [PostController::class, 'update'])->name('post.update')->middleware(['auth', 'verified', 'role:admin']);
+// Route::delete('/post/delete/{id}', [PostController::class, 'destroy'])->name('post.delete')->middleware(['auth', 'verified', 'role:admin']);
+
+//Berita
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita')->middleware(['auth', 'verified', 'role:admin']);
+Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create')->middleware(['auth', 'verified', 'role:admin']);
+Route::post('/berita/create', [BeritaController::class, 'store'])->name('berita.store')->middleware(['auth', 'verified', 'role:admin']);
+Route::get('/berita/edit/{id}', [BeritaController::class, 'edit'])->name('berita.edit')->middleware(['auth', 'verified', 'role:admin']);
+Route::put('/berita/update/{post}', [BeritaController::class, 'update'])->name('berita.update')->middleware(['auth', 'verified', 'role:admin']);
+Route::delete('/berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.delete')->middleware(['auth', 'verified', 'role:admin']);
 
 // Tag
 Route::get('/tag', [TagController::class, 'index'])->name('tag')->middleware(['auth', 'verified', 'role:admin']);

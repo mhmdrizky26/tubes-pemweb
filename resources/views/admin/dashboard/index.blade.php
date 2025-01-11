@@ -17,7 +17,7 @@
                                 <h4 title="USER">USER</h4>
                             </div>
                             <div class="card-body">
-                                {{ App\Models\User::count() ?? '0' }}
+                                {{ (App\Models\User::count() ?? 0) - 1 }}
                             </div>
                         </div>
                     </div>
