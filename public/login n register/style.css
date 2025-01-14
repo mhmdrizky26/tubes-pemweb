@@ -172,6 +172,15 @@ form {
     transition: .6s ease-in-out;
 }
 
+.logo-img {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    border-radius: 20%;
+    background-color: #7494ec;
+}
+
 .toggle-panel.toggle-left {
     left: 0;
     transition-delay: 1.2s;

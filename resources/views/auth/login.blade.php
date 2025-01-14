@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Insighthub</title>
+    <title>Masuk | Insighthub</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('login n register/style.css') }}">
 </head>
@@ -15,13 +15,13 @@
         <div class="form-box login">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <h1>Login</h1>
+                <h1>Masuk</h1>
                 <div class="input-box">
                     <x-input-label for="email" :value="__('')" />
-                    <x-text-input id="email" class="block mt-1 w-full" 
+                    <x-text-input id="email" class="block mt-1 w-full"
 
                                     type="email" placeholder="Email"
-                                    name="email" :value="old('email')" 
+                                    name="email" :value="old('email')"
                                     required autofocus autocomplete="username" />
 
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -32,32 +32,19 @@
 
                     <x-text-input id="password" class="block mt-1 w-full"
                                     type="password" placeholder="Password"
-                                    name="password" 
+                                    name="password"
                                     required autocomplete="current-password" />
-                        
+
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <div class="block mt-4">
-                    <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                        <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                    </label>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <p>or login with social platforms</p>
-                <div class="social-icons">
-                    <a href="#"><i class='bx bxl-google' ></i></a>
-                    <a href="#"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#"><i class='bx bxl-github' ></i></a>
-                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                </div>
+                <button type="submit" class="btn">Masuk</button>
             </form>
         </div>
 
         <div class="form-box register">
             <form action="">
-                <h1>Registration</h1>
+                <h1>Daftar</h1>
                 <div class="input-box">
                     <input type="text" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
@@ -70,27 +57,24 @@
                     <input type="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <button type="submit" class="btn">Register</button>
-                <p>or register with social platforms</p>
-                <div class="social-icons">
-                    <a href="#"><i class='bx bxl-google' ></i></a>
-                    <a href="#"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#"><i class='bx bxl-github' ></i></a>
-                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                </div>
+                <button type="submit" class="btn">Daftar</button>
             </form>
         </div>
 
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
-                <h1>Hello, Welcome!</h1>
-                <p>Don't have an account?</p>
-                <button class="btn register-btn" onclick="delayedRedirect('{{ route('register') }}')">Register</button>
+                <a href="/"><img src="{{ asset('bahan-tubes/img/INSIGHTHUB (9).png') }}" alt="#" class="logo-img"></a>
+                <p></p>
+                <h1>Selamat Datang!</h1>
+                <p>Belum mempunyai akun?</p>
+                <button class="btn register-btn" onclick="delayedRedirect('{{ route('register') }}')">Daftar</button>
             </div>
             <div class="toggle-panel toggle-right">
-                <h1>Welcome Back!</h1>
-                <p>Already have an account?</p>
-                <button class="btn login-btn" onclick="delayedRedirect('{{ route('login') }}')">Login</button>
+                <a href="/"><img src="{{ asset('bahan-tubes/img/INSIGHTHUB (9).png') }}" alt="#" class="logo-img"></a>
+                <p></p>
+                <h1>Buat Akun!</h1>
+                <p>Sudah mempunyai akun?</p>
+                <button class="btn login-btn" onclick="delayedRedirect('{{ route('login') }}')">Masuk</button>
             </div>
         </div>
     </div>

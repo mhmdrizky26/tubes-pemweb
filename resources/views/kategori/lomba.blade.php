@@ -1,110 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lomba | Insighthub</title>
-<link rel="stylesheet" href="{{ asset('bahan-tubes/kategori_materi/styles.css') }}">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+@extends('layouts.user')
 
-<body>
-<div class="container">
-    <!-- Navigation Sidebar -->
-    <aside class="sidebar">
-    <a href="dashboard.html"><img src="{{ asset('bahan-tubes/img/InsightHub__2__1-removebg-preview.png') }}" alt="#"></a>
-    <nav>
-        <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#" class="active">Blog</a></li>
-        </ul>
-    </nav>
-    <div class="logout">
-        <a href="#">Log out</a>
-    </div>
-    </aside>
+@section('content')
 
-    <!-- Main Content -->
-    <main>
-    <div class="articles-section">
-        <h2>Blog</h2>
-        <i class='bx bxs-user-circle' ></i>
+		<!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Kategori Lomba</h2>
+							<ul class="bread-list">
+								<li><a href="/">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">Kategori Lomba</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
 
-        <!-- Filter Section -->
-        <div class="filter-section">
-        <select>
-            <option value="all">Sort by</option>
-            <option value="lomba">Lomba</option>
-            <option value="beasiswa">Beasiswa</option>
-            <option value="karir">Karir</option>
-            <option value="kabar">Kabar Terbaru</option>
-            <option value="hmif">HMIF</option>
-        </select>
-        <button class="filter-button">Filter</button>
-        </div>
+		<!-- Start Blog Area -->
+		<section class="blog section p-0" id="blog" data-section="blog">
+			<div class="container">
 
-        <!-- Articles Grid -->
-        <div class="articles-grid">
-        <div class="article-card">
-            <img src="image1.jpg" alt="lomba">
-            <div class="article-content">
-            <span class="category">Lomba</span>
-            <h3><a href="../blog-single.html">Lorem Ipsum</a></h3>
-            <p class="author">Lorem</p>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="{{ asset('img/blog2.jpeg') }}" alt="lomba">
-            <div class="article-content">
-            <span class="category">Lomba</span>
-            <h3><a href="../blog-single.html">Lomba Hology7.0</a></h3>
-            <p class="author">Lorem</p>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="image4.jpg" alt="lomba">
-            <div class="article-content">
-            <span class="category">Lomba</span>
-            <h3><a href="../blog-single.html">Lorem Ipsum</a></h3>
-            <p class="author">Lorem</p>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="image4.jpg" alt="lomba">
-            <div class="article-content">
-            <span class="category">Lomba</span>
-            <h3><a href="#"></a>Lorem Ipsum</h3>
-            <p class="author">Lorem</p>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="image5.jpg" alt="lomba">
-            <div class="article-content">
-            <span class="category">lomba</span>
-            <h3><a href="#"></a>Lorem Ipsum</h3>
-            <p class="author">Lorem Ipsum</p>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="image6.jpg" alt="Lomba">
-            <div class="article-content">
-            <span class="category">Lomba</span>
-            <h3><a href="#"></a>Lorem Ipsum</h3>
-            <p class="author">Lorem</p>
-            </div>
-        </div>
-        </div>
+                <div class="input-group py-5">
+                    <input type="text" class="form-control" name="q"
+                        placeholder="   Cari berdasarkan judul berita">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
+                        </button>
+                    </div>
+                </div>
 
-        <!-- Pagination -->
-        <div class="pagination">
-        <button class="page active">1</button>
-        <button class="page">2</button>
-        <button class="page">3</button>
-        <button class="page">...</button>
-        <button class="page">80</button>
-        </div>
-    </div>
-    </main>
-</div>
-</body>
-</html>
+				<div class="row pb-5">
+					{{-- @foreach($posts as $post)
+                    <div class="col-lg-4 col-md-6 col-12 mb-5">
+                        <!-- Single Blog -->
+                        <div class="single-news">
+                            <div class="news-head">
+                                <img src="{{ $post->image }}" alt="{{ $post->title }}">
+
+                            </div>
+                            <div class="news-body">
+                                <div class="news-content">
+                                    <div class="date">{{ $post->created_at}}</div>
+                                    <div class="kategori">{{ $post->category->name }}</div>
+                                    <h2><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h2>
+                                    <p class="text">{{ Str::limit($post->slug, 150) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                    </div>
+                    @endforeach --}}
+
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Single Blog -->
+						<div class="single-news">
+							<div class="news-head">
+								<img src="{{ asset('bahan-tubes/img/blog2.jpeg') }}" alt="#">
+							</div>
+							<div class="news-body">
+								<div class="news-content">
+									<div class="date">15 Jul, 2020</div>
+									<div class="kategori">INFO LOMBA</div>
+									<h2><a href="blog-single.html">LOMBA HOLOGY 7.0</a></h2>
+									<p class="text">✨️REGISTRATION IS NOW OPEN!🚀
+										Udah tahu belum nih informasi yang menarik? Competition HOLOGY 7.0 kembali hadir dalam serangkaian lomba yang challenging dan menarik banget nih!
+										Competition HOLOGY 7.0 hadir dengan cabang lomba yang tidak kalah seru dengan tahun-tahun sebelumnya.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Single Blog -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Single Blog -->
+						<div class="single-news">
+							<div class="news-head">
+								<img src="{{ asset('bahan-tubes/img/blog3.jpg') }}" alt="#">
+							</div>
+							<div class="news-body">
+								<div class="news-content">
+									<div class="date">05 Jan, 2020</div>
+									<div class="kategori">INFO BEASISWA</div>
+									<h2><a href="blog-single.html">BEASISWA JFLS</a></h2>
+									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Single Blog -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Blog Area -->
+
+@endsection
