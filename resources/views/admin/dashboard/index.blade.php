@@ -74,7 +74,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4 title="AGENDA">AGENDA</h4>
+                                <h4 title="AGENDA1">AGENDA</h4>
                             </div>
                             <div class="card-body">
                                 {{ App\Models\Event::count() ?? '0' }}
