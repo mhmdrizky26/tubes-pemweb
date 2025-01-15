@@ -61,14 +61,6 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">TAGS</label>
-                                <select class="form-control" name="tags[]" multiple="multiple">
-                                    @foreach ($tags as $tag)
-                                        <option value="{{ $tag->id }}">{{ $tag->name }} </option>
-                                    @endforeach
-                                </select>
-                            </div>
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                                 SIMPAN</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i>

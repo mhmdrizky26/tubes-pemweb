@@ -33,10 +33,6 @@ class Post extends Model
      *
      * @return void
      */
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 
     /**
      * image
@@ -56,14 +52,17 @@ class Post extends Model
      * @param  mixed $date
      * @return void
      */
-    protected function createdAt(): Attribute
+    public function getFormattedDateAttribute()
     {
-        return Attribute::make(
-            get: fn ($value) => Carbon::parse($value)->format('d-M-Y'),
-        );
+        return \Carbon\Carbon::parse($this->created_at)->format('d M Y');
     }
 
-    protected $casts = [
-        'created_at' => 'datetime',
-    ];
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
 }

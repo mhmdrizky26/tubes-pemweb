@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -22,9 +21,8 @@ class BeritaController extends Controller
     }
     public function create()
     {
-        $tags = Tag::latest()->get();
         $categories = Category::latest()->get();
-        return view('admin.berita.create', compact('tags', 'categories'));
+        return view('admin.berita.create', compact('categories'));
     }
     public function store(Request $request)
     {
@@ -46,9 +44,6 @@ class BeritaController extends Controller
             'category_id' => $request->input('category_id'),
             'content'     => $request->input('content')
         ]);
-
-        //assign tags
-        $post->tags()->attach($request->input('tags'));
         $post->save();
 
         if ($post) {
@@ -62,9 +57,8 @@ class BeritaController extends Controller
     public function edit(Post $post,$id)
     {
         $post = Post::findOrFail($id);
-        $tags = Tag::latest()->get();
         $categories = Category::latest()->get();
-        return view('admin.berita.edit', compact('post', 'tags', 'categories'));
+        return view('admin.berita.edit', compact('post', 'categories'));
     }
     public function update(Request $request, Post $post)
     {
@@ -102,10 +96,7 @@ class BeritaController extends Controller
             ]);
         }
 
-        //assign tags
-        $post->tags()->sync($request->input('tags'));
-
-        return redirect()->route('berita')->with('success', 'Data Berhasil Diupdate!');
+        return redirect()->route('berita')->with('success', 'Data Berhasil Diubah!');
     }
     public function destroy($id)
     {

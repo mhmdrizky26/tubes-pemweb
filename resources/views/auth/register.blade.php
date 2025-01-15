@@ -48,7 +48,7 @@
                 <div class="input-box">
                     <x-input-label for="name" :value="__('')" />
                     <x-text-input id="name" class="block mt-1 w-full"
-                                    type="text" placeholder="Username"
+                                    type="text" placeholder="Nama"
                                     name="name" :value="old('name')"
                                     required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />

@@ -27,6 +27,8 @@
     <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body style="background-color: white">
@@ -84,23 +86,14 @@
                             "><i class='fas fa-address-book'></i>
                                     <span>User</span></a></li>
                             <li class=""><a class="nav-link"
+                                    href="{{ route('kategori') }}"><i class="fas fa-folder"></i>
+                                    <span>Kategori</span></a>
+                             </li>
+                            <li class=""><a class="nav-link"
                                     href="{{ route('berita') }}
                             "><i
                                         class="fas fa-book-open"></i>
                                     <span>Berita</span></a></li>
-
-                            <li class=""><a class="nav-link"
-                                    href="{{ route('tag') }}"><i class="fas fa-tags"></i> <span>Tags</span></a>
-                            </li>
-
-                            <li class=""><a class="nav-link"
-                                    href="{{ route('kategori') }}"><i class="fas fa-folder"></i>
-                                    <span>Kategori</span></a>
-                            </li>
-
-                            <li class=""><a class="nav-link"
-                                    href="{{ route('agenda') }}"><i class="fas fa-bell"></i>
-                                    <span>Agenda</span></a></li>
                     </ul>
                 </aside>
             </div>

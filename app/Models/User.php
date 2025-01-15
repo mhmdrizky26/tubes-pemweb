@@ -47,6 +47,10 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->hasMany(Role::class); // Contoh relasi dengan model lain
+        return $this->hasMany(Role::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
